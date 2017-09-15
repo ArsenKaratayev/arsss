@@ -8,31 +8,36 @@ namespace git2
         {
             Console.WriteLine("Hello World!");
         }
-        static void isPrime(int n)
+        private static string IsPrime(int a)
         {
+            string o = "";
             int k = 0;
-            if (n < 3)
+            if (a != 2 && a % 2 == 0)
             {
-                System.Console.WriteLine("prime");
+                o = "composite";
+                return o;
             }
-            for (int i = 0; i < Math.Pow(n, 0.5); i++)
+            for (int i = 1; i < Math.Pow(a, 0.5); i++)
             {
-                if (n % i == 0)
+                if (a % i == 0)
                 {
                     k++;
-                    if (k > 1)
-                    {
-                        System.Console.WriteLine("composite");
-                    }
+                }
+                if (k > 1)
+                {
+                    o = "composite";
+                    return o;
                 }
             }
             if (k == 1)
             {
-                System.Console.WriteLine("prime");
-            }else
-            {
-                System.Console.WriteLine("composite");
+                o = "prime";
             }
+            else
+            {
+                o = "composite";
+            }
+            return o;
         }
     }
 }
